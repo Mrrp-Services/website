@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mrrp! | Hub</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="A hub for FOSS instances—community-run, easy to access. Check out our self-hosted applications and services.">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph / Social Media -->
+  <meta property="og:title" content="Mrrp! — FOSS Hub">
+  <meta property="og:description" content="A community-run hub linking to decentralized, open-source instances. Privacy-first self-hosted services.">
+  <meta property="og:type" content="website">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Styles & Favicon -->
+  <link rel="icon" type="image/png" href="img/Favi.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Decorative Cosmic Ambient Glows -->
+  <div class="nebula nebula-1" aria-hidden="true"></div>
+  <div class="nebula nebula-2" aria-hidden="true"></div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-container">
+      <a href="#" class="brand-logo" aria-label="Mrrp! Home">
+        <img src="img/mrrp_logo.svg" alt="Mrrp! Logo" class="logo-img" width="105" height="40">
+      </a>
+      
+      <nav class="nav-links" aria-label="Main Navigation">
+        <a href="#services" class="nav-link">Services</a>
+        <a href="https://status.mrrp.space" class="nav-link" target="_blank" rel="noopener noreferrer">Status</a>
+        <a href="contribute.html" class="nav-link btn-header-contribute" aria-label="Get involved with Mrrp!">Contribute</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-container">
+      
+      <h1 class="hero-title">
+        A hub for FOSS instances<br>
+        <span class="gradient-text">community-run,</span>
+        <span class="gradient-text">all with privacy in mind.</span>
+      </h1>
+      
+      <p class="hero-description">
+        Welcome to Mrrp!, where we host open-source tools, communication networks, and developer utilities that respect your data, dignity, and privacy. Find and access all hosted instances below.
+      </p>
+      
+      <div class="hero-actions">
+        <a href="#services" class="btn btn-primary" id="btn-browse">
+          <span>Browse Services</span>
+          <!-- Bold arrow down icon -->
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="btn-icon" aria-hidden="true">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <polyline points="19 12 12 19 5 12"></polyline>
+          </svg>
+        </a>
+        <a href="contribute.html" class="btn btn-secondary">
+          <span>Contribute / Get Involved</span>
+          <!-- GitHub icon -->
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="btn-icon" aria-hidden="true">
+            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="services">
+    <div class="services-container">
+      <div class="section-header">
+        <h2 class="section-title">Available Instances</h2>
+        <p class="section-subtitle">FOSS tools hosted directly on our cluster, free to use for our community.</p>
+      </div>
+
+      <!-- Grid of Services (Rendered dynamically via script.js) -->
+      <div id="services-grid" class="services-grid">
+        <!-- Fallback message for browsers without JavaScript -->
+        <noscript>
+          <div class="noscript-warning">
+            <p>Please enable JavaScript to view and interact this page.</p>
+          </div>
+        </noscript>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <span class="brand-name">Mrrp!</span>
+        <span class="footer-tagline">Decentralizing the web, one container at a time.</span>
+      </div>
+      
+      <div class="footer-links">
+        <a href="#services">Services</a>
+        <a href="https://status.mrrp.space" target="_blank" rel="noopener noreferrer">Status</a>
+        <a href="contribute.html">Contribute</a>
+        <a href="support.html">Support</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+      </div>
+      
+      <div class="footer-copyright">
+        <span>&copy; 2026 Mrrp!</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+</body>
+</html>

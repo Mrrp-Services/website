@@ -1,0 +1,570 @@
+/* =========================================================================
+   MRRP! LANDING PAGE STYLESHEET
+   Classic late 90s - early 2000s desktop operating system GUI layout.
+   Uses beveled borders, solid gray backgrounds, and document-style client text blocks.
+   ========================================================================= */
+
+/* --- GUI System Design Tokens --- */
+:root {
+  /* Typography - Early Web Standards */
+  --font-heading: 'Arial', 'Helvetica', sans-serif;
+  --font-body: 'Times New Roman', 'Times', Georgia, serif;
+  --font-mono: 'Courier New', Courier, monospace;
+
+  /* Windows 95/98 Classic Palette */
+  --bg-desktop: #808080;         /* Solid gray desktop background */
+  --bg-window: #d4d0c8;          /* Light gray system widget/window background */
+  --bg-client: #ffffff;          /* White text/list view background */
+  
+  --color-shadow-dark: #000000;   /* Hard shadow border */
+  --color-shadow-medium: #808080; /* Neutral shadow edge */
+  --color-highlight: #ffffff;     /* White light reflection bezel edge */
+  
+  --color-titlebar: #000080;     /* Active Title Bar Navy Blue */
+  --text-main: #000000;          /* Solid black text */
+  --text-muted: #555555;         /* Muted gray text */
+  --text-link: #0000ee;          /* Standard web link blue */
+  --text-link-hover: #ff0000;    /* Web classic: red on hover */
+
+  /* Muted Status Colors */
+  --status-available: #006600;
+  --status-maintenance: #805000;
+  --status-soon: #000099;
+}
+
+/* --- Base & Resets --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-desktop);
+  color: var(--text-main);
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.4;
+  padding: 2rem 1rem;
+}
+
+/* Hide cosmic decorative blurs */
+.nebula {
+  display: none !important;
+}
+
+/* --- Navigation / Menu Bar --- */
+.header {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: var(--bg-window);
+  
+  /* Top-level window outer bezel border */
+  border-left: 2px solid var(--color-highlight);
+  border-right: 2px solid var(--color-shadow-medium);
+  border-top: 2px solid var(--color-highlight);
+  box-shadow: 1px 0px 0px var(--color-shadow-dark);
+  
+  padding: 0.5rem 1rem;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  max-width: 100%;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.logo-svg,
+.logo-img {
+  height: 32px;
+  width: auto;
+  color: var(--text-main);
+  transition: filter 0.15s ease, color 0.15s ease;
+}
+
+.brand-logo:hover .logo-svg {
+  color: var(--color-titlebar);
+}
+
+.brand-logo:hover .logo-img {
+  filter: invert(8%) sepia(93%) saturate(7465%) hue-rotate(247deg) brightness(91%) contrast(105%);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  font-family: var(--font-heading);
+  font-size: 12px;
+}
+
+.nav-link {
+  color: var(--text-main);
+  text-decoration: none;
+  padding: 2px 6px;
+  border: 1px solid transparent;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
+}
+
+/* Contributions menu link */
+.btn-header-contribute::before {
+  content: "[ ";
+}
+.btn-header-contribute::after {
+  content: " ]";
+}
+
+/* --- Hero Section --- */
+.hero {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: var(--bg-window);
+  
+  /* Window sides and dividers */
+  border-left: 2px solid var(--color-highlight);
+  border-right: 2px solid var(--color-shadow-medium);
+  border-top: 1px solid var(--color-shadow-medium);
+  box-shadow: 1px 0px 0px var(--color-shadow-dark), inset 0 1px 0 var(--color-highlight);
+  
+  padding: 2rem 1rem 1rem;
+  position: relative;
+}
+
+/* Windows Active Application Title Bar overlay */
+.hero::before {
+  content: " Mrrp! Document Viewer";
+  position: absolute;
+  top: 0;
+  left: 2px;
+  right: 2px;
+  height: 20px;
+  background-color: var(--color-titlebar);
+  color: #ffffff;
+  font-family: var(--font-heading);
+  font-size: 11px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  padding-left: 6px;
+}
+
+/* Page-specific titlebars */
+.page-index::before {
+  content: " Mrrp! Dashboard Guide" !important;
+}
+.page-contribute::before {
+  content: " Mrrp! Contribution Portal" !important;
+}
+.page-support::before {
+  content: " Mrrp! Support Center" !important;
+}
+.page-privacy::before {
+  content: " Mrrp! Privacy Policy Document" !important;
+}
+.page-terms::before {
+  content: " Mrrp! Terms of Service Document" !important;
+}
+
+/* Sub-window document text area */
+.hero-container {
+  background: var(--bg-client);
+  
+  /* 2px solid inset bevel border */
+  border-top: 2px solid var(--color-shadow-medium);
+  border-left: 2px solid var(--color-shadow-medium);
+  border-bottom: 2px solid var(--color-highlight);
+  border-right: 2px solid var(--color-highlight);
+  box-shadow: inset 1px 1px 0px var(--color-shadow-dark);
+  
+  padding: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.badge-container {
+  margin-bottom: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 11px;
+}
+
+.hero-badge {
+  color: var(--text-muted);
+}
+.hero-badge::before {
+  content: "» ";
+}
+
+.hero-title {
+  font-family: var(--font-heading);
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 0.75rem;
+  line-height: 1.2;
+}
+
+.gradient-text {
+  background: none;
+  -webkit-background-clip: initial;
+  -webkit-text-fill-color: initial;
+  background-clip: initial;
+  color: var(--color-titlebar);
+}
+
+.hero-description {
+  font-size: 14px;
+  color: var(--text-main);
+  margin-bottom: 1.5rem;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+/* --- Form Submit style button --- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 4px 14px;
+  
+  /* Bevel borders */
+  border-top: 1.5px solid var(--color-highlight);
+  border-left: 1.5px solid var(--color-highlight);
+  border-right: 1.5px solid var(--color-shadow-medium);
+  border-bottom: 1.5px solid var(--color-shadow-medium);
+  background-color: var(--bg-window);
+  color: var(--text-main);
+  
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: normal;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 1px 1px 0px var(--color-shadow-dark);
+}
+
+.btn:hover {
+  background-color: #ededed;
+}
+
+.btn:active {
+  border-top: 1.5px solid var(--color-shadow-medium);
+  border-left: 1.5px solid var(--color-shadow-medium);
+  border-right: 1.5px solid var(--color-highlight);
+  border-bottom: 1.5px solid var(--color-highlight);
+  padding: 5px 13px 3px 15px; /* click offset shift */
+  box-shadow: none;
+}
+
+.btn-icon {
+  width: 10px;
+  height: 10px;
+}
+
+/* --- Services Section --- */
+.services {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: var(--bg-window);
+  
+  border-left: 2px solid var(--color-highlight);
+  border-right: 2px solid var(--color-shadow-medium);
+  border-top: 1px solid var(--color-shadow-medium);
+  box-shadow: 1px 0px 0px var(--color-shadow-dark), inset 0 1px 0 var(--color-highlight);
+  
+  padding: 1.5rem 1rem;
+}
+
+.section-header {
+  margin-bottom: 1rem;
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.section-subtitle {
+  color: var(--text-muted);
+  font-size: 12px;
+  font-family: var(--font-heading);
+  margin-top: 0.25rem;
+}
+
+/* White document/list container containing card components */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1rem;
+  background-color: var(--bg-client);
+  
+  border-top: 2px solid var(--color-shadow-medium);
+  border-left: 2px solid var(--color-shadow-medium);
+  border-bottom: 2px solid var(--color-highlight);
+  border-right: 2px solid var(--color-highlight);
+  box-shadow: inset 1px 1px 0px var(--color-shadow-dark);
+  
+  padding: 1rem;
+}
+
+/* Outset beveled button card style */
+.service-card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-window);
+  
+  border-top: 1.5px solid var(--color-highlight);
+  border-left: 1.5px solid var(--color-highlight);
+  border-right: 1.5px solid var(--color-shadow-medium);
+  border-bottom: 1.5px solid var(--color-shadow-medium);
+  box-shadow: 1px 1px 0px var(--color-shadow-dark);
+  
+  padding: 1rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.service-card:hover {
+  background-color: #dfdfdf;
+}
+
+.service-card:active {
+  border-top: 1.5px solid var(--color-shadow-medium);
+  border-left: 1.5px solid var(--color-shadow-medium);
+  border-right: 1.5px solid var(--color-highlight);
+  border-bottom: 1.5px solid var(--color-highlight);
+  box-shadow: none;
+  transform: translate(1px, 1px);
+}
+
+.card-header {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 0.5rem;
+}
+
+/* Badges enclosed in parentheses */
+.status-badge {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: normal;
+  display: inline-flex;
+  align-items: center;
+  border: none !important;
+  background: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  text-transform: none !important;
+}
+
+.status-dot {
+  display: none !important;
+}
+
+.status-badge::before {
+  content: "(";
+  color: var(--text-muted);
+}
+
+.status-badge::after {
+  content: ")";
+  color: var(--text-muted);
+}
+
+.status-available span {
+  color: var(--status-available);
+  font-weight: bold;
+}
+
+.status-maintenance span {
+  color: var(--status-maintenance);
+  font-weight: bold;
+}
+
+.status-soon span {
+  color: var(--status-soon);
+  font-weight: bold;
+}
+
+.card-body {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.service-title {
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--text-link);
+  text-decoration: underline;
+}
+
+.service-card:hover .service-title {
+  color: var(--text-link-hover);
+}
+
+.service-description {
+  font-size: 13px;
+  color: var(--text-main);
+}
+
+.card-footer {
+  margin-top: 1rem;
+}
+
+/* Bracket Link Footer */
+.btn-card {
+  display: inline-flex;
+  align-items: center;
+  font-size: 12px;
+  color: var(--text-link);
+  text-decoration: underline;
+}
+
+.btn-card::before {
+  content: "[ ";
+  color: var(--text-main);
+  text-decoration: none;
+}
+
+.btn-card::after {
+  content: " ]";
+  color: var(--text-main);
+  text-decoration: none;
+}
+
+.service-card:hover .btn-card {
+  color: var(--text-link-hover);
+}
+
+.btn-card svg {
+  display: none !important;
+}
+
+/* Noscript warnings */
+.noscript-warning {
+  grid-column: 1 / -1;
+  padding: 1rem;
+  border: 1.5px solid #ff0000;
+  color: #ff0000;
+  background-color: #fff8f8;
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+
+/* --- Footer Section --- */
+.footer {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: var(--bg-window);
+  
+  border-left: 2px solid var(--color-highlight);
+  border-right: 2px solid var(--color-shadow-medium);
+  border-bottom: 2px solid var(--color-shadow-medium);
+  border-top: 1px solid var(--color-shadow-medium);
+  box-shadow: 1px 1px 0px var(--color-shadow-dark), inset 0 1px 0 var(--color-highlight);
+  
+  padding: 0.5rem 1rem;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 12px;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.brand-name {
+  font-family: var(--font-heading);
+  font-weight: bold;
+}
+
+.footer-tagline {
+  color: var(--text-muted);
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.footer-links a {
+  color: var(--text-link);
+  text-decoration: underline;
+}
+
+.footer-links a:hover {
+  color: var(--text-link-hover);
+}
+
+.footer-copyright {
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 11px;
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 750px) {
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.75rem;
+  }
+  .footer-links {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 500px) {
+  .header-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .hero {
+    padding-top: 2rem;
+  }
+  .hero-container {
+    padding: 1rem;
+  }
+  .hero-actions {
+    flex-direction: column;
+  }
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .services-grid {
+    grid-template-columns: 1fr;
+    padding: 0.5rem;
+  }
+}
