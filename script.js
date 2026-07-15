@@ -15,7 +15,7 @@ const SERVICES_DATA = [
     name: "Coming soon",
     description: "We're still working on it, stay tuned!",
     url: "",
-    status: "Coming Soon!"
+    status: "coming-soon"
   }
 ];
 
