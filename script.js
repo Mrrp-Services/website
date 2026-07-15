@@ -12,16 +12,10 @@
 // =========================================================================
 const SERVICES_DATA = [
   {
-    name: "Instance One (Placeholder)",
-    description: "This is a placeholder description for the first FOSS service. Customize this object with the real details of your self-hosted instance.",
-    url: "https://example.com/service-one",
-    status: "available"
-  },
-  {
-    name: "Instance Two (Placeholder)",
-    description: "This is a placeholder description for the second FOSS service. Update this card to guide community members to another self-hosted application.",
-    url: "https://example.com/service-two",
-    status: "coming-soon"
+    name: "Coming soon",
+    description: "We're still working on it, stay tuned!",
+    url: "",
+    status: "Coming Soon!"
   }
 ];
 
